@@ -1,3 +1,3 @@
-module github.com/lucaswilliameufrasio/uirapuru-backend/sdk/go
+module github.com/lucaswilliameufrasio/uirapuru-sdk-go
 
 go 1.22

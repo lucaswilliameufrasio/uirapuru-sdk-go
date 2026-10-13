@@ -4,7 +4,7 @@
 //	go run ./infra -check uirapuru.toml # CI: fail when the file is stale
 package main
 
-import "github.com/lucaswilliameufrasio/uirapuru-backend/sdk/go/uirapuru"
+import "github.com/lucaswilliameufrasio/uirapuru-sdk-go/uirapuru"
 
 func main() {
 	uirapuru.Main(uirapuru.Manifest{

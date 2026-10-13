@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/lucaswilliameufrasio/uirapuru-backend/sdk/go/uirapuru"
+	"github.com/lucaswilliameufrasio/uirapuru-sdk-go/uirapuru"
 )
 
 func full() uirapuru.Manifest {

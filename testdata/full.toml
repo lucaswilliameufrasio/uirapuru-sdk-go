@@ -1,0 +1,47 @@
+version = 1
+
+[target.default]
+cluster = "vps-1"
+gateway = "edge"
+
+[target.staging]
+cluster = "vps-staging"
+gateway = "edge-staging"
+
+[[service]]
+name = "api"
+image = "ghcr.io/acme/api"
+replicas = 2
+
+[[service.trigger]]
+kind = "push"
+pattern = "main"
+
+[[service.route]]
+host = "api.example.com"
+port = 8080
+
+[service.env]
+DATABASE_URL = { kind = "secure" }
+LOG_LEVEL = { kind = "plain", value = "info" }
+
+[service.target.staging]
+replicas = 1
+
+[[service.target.staging.route]]
+host = "api.staging.example.com"
+port = 8080
+
+[[resource]]
+name = "db"
+template = "postgres"
+version = "17"
+mode = "dedicated"
+server = "db-host"
+
+[[resource]]
+name = "cache"
+template = "valkey"
+mode = "shared"
+service = "api"
+env_name = "VALKEY_URL"
